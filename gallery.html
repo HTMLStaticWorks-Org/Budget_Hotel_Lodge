@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room & Lodge Gallery | HavenStay Budget Hotel & Lodge</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Photo gallery of HavenStay Budget Hotel & Lodge: explore our clean economy single rooms, deluxe AC double rooms, family quad suites, dining cafe, and reception.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-tag {
+            background: var(--sunflower-yellow);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .before-after-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(7,17,24,0.85);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .bento-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+        .bento-item {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .bento-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .bento-wide {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .bento-tall {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        .bento-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7,17,24,0.88) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .bento-overlay h5 {
+            color: white;
+            margin: 0;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .bento-overlay span {
+            color: var(--sunflower-yellow);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            transition-delay: 0.1s;
+        }
+        .bento-item:hover img {
+            transform: scale(1.08);
+        }
+        .bento-item:hover .bento-overlay {
+            opacity: 1;
+        }
+        .bento-item:hover .bento-overlay h5,
+        .bento-item:hover .bento-overlay span {
+            transform: translateY(0);
+        }
+        @media (max-width: 992px) {
+            .bento-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bento-large, .bento-wide {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width: 576px) {
+            .bento-gallery {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+            .bento-large, .bento-wide, .bento-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-icon-wrapper">
+                    <img src="assets/images/favicon.svg" alt="HavenStay Budget Hotel & Lodge" width="40" height="40">
+                </span>
+                <span class="brand-text-block">
+                    <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                    <span class="brand-tagline">Budget Hotel & Lodge</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Lodge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Room Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Rooms & Tariff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Stay</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Stay</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/n1.jpg') center/cover no-repeat;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(7, 17, 24, 0.82);"></div>
+        <div class="container position-relative z-1">
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">Inside HavenStay</span>
+            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Rooms & Lodge Photo Gallery</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Take a closer look at our spotless single and double rooms, spacious family suites, dining cafe, and welcoming lodge facilities.</p>
+        </div>
+    </header>
+
+    <!-- Room Categories Gallery Section -->
+    <section class="section-padding" style="background: var(--primary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Verified Room Photos</span>
+                <h2 class="display-5 fw-bolder text-main mt-2">Explore Our Rooms, Suites & Guest Spaces</h2>
+                <p class="text-muted lead mt-3 mx-auto" style="max-width: 650px;">Filter through our accommodation categories to see the exact bed layouts, clean interiors, and amenities awaiting your arrival.</p>
+            </div>
+
+            <!-- Filters & Section Navigation Tabs -->
+            <div class="d-flex justify-content-center gap-2 gap-md-3 mb-5 flex-wrap" id="gallery-filter-tabs">
+                <button class="btn btn-project btn-primary-fest rounded-pill px-4 active" data-filter="all">All Rooms & Spaces</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4" data-filter="uplighting">Economy Rooms</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4" data-filter="draping">Deluxe AC Rooms</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4" data-filter="chandeliers">Family Suites</button>
+                <button class="btn btn-project btn-outline-fest rounded-pill px-4" data-filter="gobos">Dining & Lobby</button>
+            </div>
+
+            <div class="row g-4" id="transformation-portfolio-grid">
+                <!-- Room 1: Economy -->
+                <div class="col-lg-6 gallery-item" data-category="uplighting">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/n2.jpg" alt="Standard Economy Single & Twin Room" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">ECONOMY ROOM</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Standard Economy Single & Twin Room</h4>
+                            <p class="text-muted mb-0">Well-ventilated budget room with orthopedic bed, study desk, free Wi-Fi, and attached hot-water bath ($29/night).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2: Deluxe AC -->
+                <div class="col-lg-6 gallery-item" data-category="draping">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/n3.jpg" alt="Deluxe Double AC Bedroom" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">DELUXE AC ROOM</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Deluxe Queen Air-Conditioned Bedroom</h4>
+                            <p class="text-muted mb-0">Spacious queen bed with split AC, 32-inch Smart LED TV, electric tea kettle, and crisp cotton linens ($45/night).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3: Family Suite -->
+                <div class="col-lg-6 gallery-item" data-category="chandeliers">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/n4.jpg" alt="Super Deluxe Family Quad Suite" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">FAMILY SUITE</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Super Deluxe 4-Bed Family Suite</h4>
+                            <p class="text-muted mb-0">Interconnected family suite with two queen beds, seating lounge, mini-fridge, and complimentary breakfast ($65/night).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 4: Dining & Lobby -->
+                <div class="col-lg-6 gallery-item" data-category="gobos">
+                    <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
+                            <img src="assets/images/n5.jpg" alt="In-House Homestyle Dining & Reception" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">DINING & LOBBY</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Homestyle Dining Cafe & 24/7 Reception</h4>
+                            <p class="text-muted mb-0">Bright ground-floor dining cafe serving hot breakfast and meals, right next to our 24-hour guest reception lounge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Lodge Spaces Gallery Section -->
+    <section class="section-padding" id="featured-installations" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Cleanliness & Comfort</span>
+                <h2 class="display-5 fw-bolder text-main">Featured Rooms & Lodge Amenities</h2>
+                <p class="text-muted lead mt-3">Every bedroom, corridor, and dining table is maintained to spotless daily standards.</p>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="uplighting">
+                    <div class="project-card">
+                        <img src="assets/images/n6.jpg" alt="Economy Single Room">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Economy Stay</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Cozy Solo Traveler Bedroom</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="draping">
+                    <div class="project-card">
+                        <img src="assets/images/n7.jpg" alt="Deluxe Queen Bed">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Deluxe AC</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Queen Bed & Fresh Cotton Linens</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="chandeliers">
+                    <div class="project-card">
+                        <img src="assets/images/n8.jpg" alt="Family Quad Suite">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Family Suite</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Spacious 4-Guest Family Room</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="uplighting">
+                    <div class="project-card">
+                        <img src="assets/images/n9.jpg" alt="Executive Twin Room">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Twin AC Room</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Twin Orthopedic Beds & Work Desk</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="festoon">
+                    <div class="project-card">
+                        <img src="assets/images/n10.jpg" alt="Courtyard & Parking">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Lodge Exterior</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Evening Courtyard & Gated Parking</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="gobos">
+                    <div class="project-card">
+                        <img src="assets/images/n11.jpg" alt="In-House Dining Cafe">
+                        <div class="project-badge-icon"><i class="bi bi-search"></i></div>
+                        <div class="project-overlay">
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Dining Hall</span>
+                            <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Fresh Homestyle Breakfast & Cafe</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3">Book Your Preferred Room Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Box Gallery Section -->
+    <section class="section-padding overflow-hidden" id="curated-showcase" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span style="color: var(--sunflower-yellow);">Lodge Tour</span>
+                <h2 class="display-5 fw-bolder text-main">Inside HavenStay Budget Hotel & Lodge</h2>
+                <p class="text-muted lead mt-3">A visual tour of our guest rooms, reception lounge, dining area, and travel facilities.</p>
+            </div>
+            
+            <div class="bento-gallery mt-5">
+                <div class="bento-item bento-large group">
+                    <img src="assets/images/n12.jpg" alt="Super Deluxe Family Suite">
+                    <div class="bento-overlay">
+                        <h5>Super Deluxe Family Suite</h5>
+                        <span>Spacious 4-Guest Lodge Accommodation</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-tall group">
+                    <img src="assets/images/n13.jpg" alt="Reception & Corridor">
+                    <div class="bento-overlay">
+                        <h5>24/7 Front Desk & Elevator Lobby</h5>
+                        <span>Express Guest Check-In</span>
+                    </div>
+                </div>
+                <div class="bento-item group">
+                    <img src="assets/images/n14.jpg" alt="Fresh Cotton Bedding">
+                    <div class="bento-overlay">
+                        <h5>Sanitized Cotton Bedding</h5>
+                        <span>Daily Housekeeping</span>
+                    </div>
+                </div>
+                <div class="bento-item group">
+                    <img src="assets/images/n15.jpg" alt="Warm Room Lighting">
+                    <div class="bento-overlay">
+                        <h5>Relaxing Bedroom Ambiance</h5>
+                        <span>Deluxe AC Wing</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-wide group">
+                    <img src="assets/images/n16.jpg" alt="Group & Conference Lounge">
+                    <div class="bento-overlay">
+                        <h5>Family & Group Seating Lounge</h5>
+                        <span>Interconnected Suites & Dormitory</span>
+                    </div>
+                </div>
+                <div class="bento-item bento-wide group">
+                    <img src="assets/images/n17.jpg" alt="Outdoor Terrace Cafe">
+                    <div class="bento-overlay">
+                        <h5>Ground-Floor Cafe & Courtyard</h5>
+                        <span>Morning Tea, Breakfast & Parking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo" href="index.html">
+                        <span class="brand-icon-wrapper">
+                            <img src="assets/images/favicon.svg" alt="HavenStay" width="38" height="38">
+                        </span>
+                        <span class="brand-text-block">
+                            <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                            <span class="brand-tagline">Budget Hotel & Lodge</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Clean, comfortable, and affordable single, double AC, and family suite rooms for every traveler.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Lodge</a></li>
+                        <li><a href="services.html">Facilities</a></li>
+                        <li><a href="pricing.html">Rooms & Tariff</a></li>
+                        <li><a href="quote.html">Enquire Stay</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li><a href="gallery.html">Room Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="quote.html">Booking Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Check Room Availability</h5>
+                    <p class="text-muted">Contact our 24/7 front desk to reserve your room today.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Room Stay</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 HavenStay Budget Hotel & Lodge. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Gallery Tab Filtering Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('#gallery-filter-tabs button');
+            const items = document.querySelectorAll('#transformation-portfolio-grid .gallery-item');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active button state
+                    tabs.forEach(t => {
+                        t.classList.remove('btn-primary-fest', 'active');
+                        t.classList.add('btn-outline-fest');
+                    });
+                    tab.classList.remove('btn-outline-fest');
+                    tab.classList.add('btn-primary-fest', 'active');
+
+                    const filterValue = tab.getAttribute('data-filter');
+
+                    // Filter and smoothly animate items
+                    items.forEach(item => {
+                        const itemCat = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCat === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 30);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 250);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

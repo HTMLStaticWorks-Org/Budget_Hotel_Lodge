@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking Enquiry | HavenStay Budget Hotel & Lodge</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Contact HavenStay Budget Hotel & Lodge. Submit a room booking enquiry, check nightly tariffs, or reach our 24/7 front desk reception.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .contact-social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border-color);
+            margin-right: 10px;
+        }
+        .contact-social-link:hover {
+            background: var(--sunflower-yellow);
+            transform: translateY(-10px) rotate(10deg);
+            color: #ffffff;
+            box-shadow: 0 15px 30px var(--shadow-glow);
+        }
+        .map-wrapper {
+            border-radius: 4rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .concierge-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 3rem;
+            border: 1px solid var(--border-color);
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+        .concierge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px var(--shadow-glow);
+            border-color: var(--sunflower-yellow);
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(13, 148, 136, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-icon-wrapper">
+                    <img src="assets/images/favicon.svg" alt="HavenStay Budget Hotel & Lodge" width="40" height="40">
+                </span>
+                <span class="brand-text-block">
+                    <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                    <span class="brand-tagline">Budget Hotel & Lodge</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Lodge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Room Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Rooms & Tariff</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Stay</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Stay</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/n23.jpg') center/cover no-repeat;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(7, 17, 24, 0.82);"></div>
+        <div class="container position-relative z-1">
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">24/7 Reservation Desk</span>
+            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Contact Us & Booking Enquiry</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Planning a city visit, business trip, or family stay? Check room availability and lock in our best direct tariffs with our 24/7 reception team.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <div class="service-card p-4 p-lg-5">
+                        <h2 class="mb-2" style="font-family: var(--font-heading);">Room Booking Enquiry Form</h2>
+                        <p class="text-muted mb-4">Provide your check-in details below to check room availability and receive an instant booking confirmation from our front desk.</p>
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Your room booking enquiry has been received. Our 24/7 reservation desk will contact you shortly to confirm your stay.');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Guest Full Name</label>
+                                    <input type="text" class="form-control rounded-pill p-3 border-warning w-100" placeholder="e.g. David Miller" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Email Address</label>
+                                    <input type="email" class="form-control rounded-pill p-3 border-warning w-100" placeholder="david@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Phone / WhatsApp Number</label>
+                                    <input type="tel" class="form-control rounded-pill p-3 border-warning w-100" placeholder="(555) 019-2834" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Check-In Date</label>
+                                    <input type="date" class="form-control rounded-pill p-3 border-warning w-100" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Preferred Room Category</label>
+                                    <select class="form-select rounded-pill p-3 border-warning w-100">
+                                        <option selected>Deluxe Double AC Room ($45/night)</option>
+                                        <option>Economy Single / Non-AC Room ($29/night)</option>
+                                        <option>Executive Twin AC Room ($49/night)</option>
+                                        <option>Super Deluxe Family Suite ($65/night)</option>
+                                        <option>Group / Multi-Room Booking</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Number of Guests & Nights</label>
+                                    <input type="text" class="form-control rounded-pill p-3 border-warning w-100" placeholder="e.g. 2 Adults, 3 Nights">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Facilities & Stay Preferences</label>
+                                    <div class="d-flex flex-wrap gap-3 text-start mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="srv1" checked>
+                                            <label class="form-check-label" for="srv1">Air-Conditioned Room</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="srv2" checked>
+                                            <label class="form-check-label" for="srv2">Free Gated Parking Bay</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="srv3">
+                                            <label class="form-check-label" for="srv3">Extra Rollaway Bed</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="srv4">
+                                            <label class="form-check-label" for="srv4">Station / Airport Pickup</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-start d-block fw-bold small text-muted">Special Requests / Expected Arrival Time</label>
+                                    <textarea class="form-control rounded-4 p-3 border-warning w-100" rows="4" placeholder="Let us know your expected arrival time, ground-floor preference, or dietary notes..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4 pt-2 mb-3">
+                                    <button type="submit" class="btn btn-project btn-primary-fest w-100 fw-bold d-flex align-items-center justify-content-center gap-2 rounded-pill shadow-lg text-uppercase" style="letter-spacing: 0.8px;">
+                                        <i class="bi bi-send-check-fill fs-5"></i> Send Booking Enquiry
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center text-lg-start">
+                    <div class="p-4 rounded-5 border mb-4" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <h4 style="font-family: var(--font-heading);">Lodge Reservation Desk</h4>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3 mb-3">
+                            <i class="bi bi-telephone-fill fs-4" style="color: var(--sunflower-yellow);"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">(800) 555-STAY</p>
+                                <p class="small text-muted mb-0">24/7 Front Desk & Instant Room Booking</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3 mb-3">
+                            <i class="bi bi-envelope-fill fs-4" style="color: var(--sunflower-yellow);"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">bookings@havenstaylodge.com</p>
+                                <p class="small text-muted mb-0">Direct Room & Group Tariff Enquiries</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3">
+                            <i class="bi bi-geo-alt-fill fs-4" style="color: var(--sunflower-yellow);"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">HavenStay Budget Hotel & Lodge</p>
+                                <p class="small text-muted mb-0">245 Central Station Road, Opposite Metro Plaza</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-5 border" style="border-color: var(--border-color) !important; background: var(--card-bg);">
+                        <h4 style="font-family: var(--font-heading);">Check-In & Reception Hours</h4>
+                        <p class="mb-1">Front Desk & Reception: Open 24 Hours / 7 Days</p>
+                        <p class="mb-3">Standard Check-In: 12:00 PM | Check-Out: 11:00 AM</p>
+                        <p class="mb-4">Early Morning Check-In: Available on Request</p>
+                        
+                        <div class="pt-3 border-top" style="border-color: var(--border-color) !important;">
+                            <h6 class="mb-3 text-uppercase small fw-bold text-muted">Connect With HavenStay Lodge</h6>
+                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                <a href="#" class="contact-social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="contact-social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="contact-social-link" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                                <a href="#" class="contact-social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="mt-5 pt-5">
+                <div class="section-title text-center">
+                    <span style="color: var(--sunflower-yellow);">Prime Transit Location</span>
+                    <h2>Find HavenStay Budget Hotel & Lodge</h2>
+                </div>
+                <div class="map-wrapper mt-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103444.64010166205!2d-78.71801844007827!3d35.83311899933596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f5110dc%3A0x7f37f37478d10f99!2sRaleigh%2C%20NC!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo" href="index.html">
+                        <span class="brand-icon-wrapper">
+                            <img src="assets/images/favicon.svg" alt="HavenStay" width="38" height="38">
+                        </span>
+                        <span class="brand-text-block">
+                            <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                            <span class="brand-tagline">Budget Hotel & Lodge</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Clean, safe, and affordable rooms with 24/7 front desk service, free Wi-Fi, and prime city access.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Lodge</a></li>
+                        <li><a href="services.html">Facilities</a></li>
+                        <li><a href="pricing.html">Rooms & Tariff</a></li>
+                        <li><a href="quote.html">Enquire Stay</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li><a href="gallery.html">Room Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="quote.html">Tariff Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Booking Enquiry</h5>
+                    <p class="text-muted">Check if your preferred room category is available today.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Room Availability</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 HavenStay Budget Hotel & Lodge. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

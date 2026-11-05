@@ -1,0 +1,188 @@
+body[dir='rtl'] {
+    text-align: right;
+}
+
+body[dir='rtl'] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+body[dir='rtl'] .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+body[dir='rtl'] .text-start { text-align: right !important; }
+@media (min-width: 576px) { body[dir='rtl'] .text-sm-start { text-align: right !important; } }
+@media (min-width: 768px) { body[dir='rtl'] .text-md-start { text-align: right !important; } }
+@media (min-width: 992px) { body[dir='rtl'] .text-lg-start { text-align: right !important; } }
+@media (min-width: 1200px) { body[dir='rtl'] .text-xl-start { text-align: right !important; } }
+@media (min-width: 1400px) { body[dir='rtl'] .text-xxl-start { text-align: right !important; } }
+
+body[dir='rtl'] .text-end { text-align: left !important; }
+@media (min-width: 576px) { body[dir='rtl'] .text-sm-end { text-align: left !important; } }
+@media (min-width: 768px) { body[dir='rtl'] .text-md-end { text-align: left !important; } }
+@media (min-width: 992px) { body[dir='rtl'] .text-lg-end { text-align: left !important; } }
+@media (min-width: 1200px) { body[dir='rtl'] .text-xl-end { text-align: left !important; } }
+@media (min-width: 1400px) { body[dir='rtl'] .text-xxl-end { text-align: left !important; } }
+
+body[dir='rtl'] .navbar-brand,
+body[dir='rtl'] .footer-logo {
+    flex-direction: row-reverse;
+}
+body[dir='rtl'] .brand-text-block {
+    text-align: right;
+}
+
+body[dir='rtl'] .footer-links ul li a:hover {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+/* Fix logical classes in RTL (Input Group Pills) */
+body[dir='rtl'] .rounded-start-pill {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+}
+
+body[dir='rtl'] .rounded-end-pill {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+}
+
+body[dir='rtl'] .border-start-0 {
+    border-left-width: 1px !important;
+    border-left-style: solid !important;
+    border-right: 0 !important;
+}
+
+body[dir='rtl'] .border-end-0 {
+    border-right-width: 1px !important;
+    border-right-style: solid !important;
+    border-left: 0 !important;
+}
+
+/* Fix checkboxes in RTL */
+body[dir='rtl'] .form-check {
+    padding-left: 0 !important;
+    padding-right: 1.5em !important;
+    text-align: right;
+}
+
+body[dir='rtl'] .form-check .form-check-input {
+    float: right !important;
+    margin-left: 0 !important;
+    margin-right: -1.5em !important;
+}
+
+/* Home 2 Hero RTL Fix */
+@media (min-width: 769px) {
+    body[dir='rtl'] .hero-2 {
+        background: linear-gradient(-90deg, #0b0d14 35%, rgba(11, 13, 20, 0.4) 100%), url('../images/hero_event_lighting.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+}
+
+body[dir='rtl'] .floating-badge {
+    right: auto !important;
+    left: 5% !important;
+}
+
+/* Delivery Zones Roadmap RTL Fix */
+body[dir='rtl'] .roadmap-item:nth-child(even) .roadmap-content {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+@media (max-width: 991px) {
+    body[dir='rtl'] .timeline-line,
+    body[dir='rtl'] .truck-path,
+    body[dir='rtl'] .roadmap-dot {
+        left: auto !important;
+        right: 20px !important;
+        transform: translateX(50%);
+    }
+    body[dir='rtl'] .roadmap-content {
+        margin-left: 0 !important;
+        margin-right: 60px !important;
+    }
+}
+
+/* Pricing FAQ Accordion RTL Fix */
+body[dir='rtl'] .accordion-button::after {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Methodology Process Timeline RTL overrides */
+body[dir='rtl'] .process-timeline {
+    padding-left: 0;
+    padding-right: 2.5rem;
+    border-left: none;
+    border-right: 3px solid var(--secondary-bg);
+}
+
+body[dir='rtl'] .process-node {
+    border-left: none;
+    border-right: 0px solid transparent;
+}
+
+body[dir='rtl'] .process-node::before {
+    left: auto;
+    right: -2.5rem;
+    transform: translateY(-50%) translateX(1.5px);
+}
+
+body[dir='rtl'] .process-node:hover {
+    transform: translateX(-15px) scale(1.02);
+    border-left: none;
+    border-right: 6px solid var(--sky-orange);
+}
+
+body[dir='rtl'] .process-node:hover::before {
+    transform: translateY(-50%) translateX(1.5px) scale(1.2);
+}
+
+/* About Page Growth Timeline RTL overrides */
+body[dir='rtl'] .timeline-item:nth-child(odd) {
+    left: auto;
+    right: 0;
+    text-align: left;
+}
+body[dir='rtl'] .timeline-item:nth-child(even) {
+    left: auto;
+    right: 50%;
+    text-align: right;
+}
+body[dir='rtl'] .timeline-item:nth-child(odd) .timeline-dot {
+    right: auto;
+    left: -12px;
+}
+body[dir='rtl'] .timeline-item:nth-child(even) .timeline-dot {
+    left: auto;
+    right: -12px;
+}
+
+@media (max-width: 768px) {
+    body[dir='rtl'] .growth-timeline::before {
+        left: auto;
+        right: 20px;
+    }
+    body[dir='rtl'] .timeline-item {
+        padding-left: 0;
+        padding-right: 50px;
+        left: auto !important;
+        right: 0 !important;
+        text-align: right !important;
+    }
+    body[dir='rtl'] .timeline-item:nth-child(odd) .timeline-dot,
+    body[dir='rtl'] .timeline-item:nth-child(even) .timeline-dot {
+        left: auto;
+        right: 8px;
+    }
+}

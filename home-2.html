@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HavenStay Budget Hotel & Lodge | Affordable Rooms, Family Suites & Instant Tariff Estimator</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .hero-2 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 130px 8% 100px;
+            background: linear-gradient(135deg, rgba(7, 17, 24, 0.92) 0%, rgba(7, 17, 24, 0.58) 100%), url('assets/images/g1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-2::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, #071118 120%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-2 .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-2 .hero-content h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-2 .hero-content h1 span {
+            color: var(--sunflower-yellow) !important;
+            -webkit-text-fill-color: #2dd4bf !important;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.95);
+        }
+
+        .hero-2 .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95) !important;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .hero-2 { padding: 130px 4% 60px; text-align: center; }
+            .hero-2 .hero-content { margin-bottom: 2rem; }
+            .hero-graphic { max-width: 310px; margin-top: 1.5rem; }
+            .hero-float-badge { padding: 0.35rem 0.75rem; gap: 7px; }
+            .hero-float-badge strong { font-size: 0.72rem; }
+            .hero-float-badge span { font-size: 0.6rem; }
+            .hero-float-badge i { width: 24px; height: 24px; font-size: 0.85rem; }
+            .float-badge-1 { top: 12px; right: 12px; }
+            .float-badge-2 { bottom: 15px; left: 12px; }
+        }
+        @media (max-width: 768px) {
+            .hero-2 { padding: 125px 4% 50px; text-align: center; justify-content: center; }
+            .hero-2 .hero-content h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+            .hero-2 .hero-content p { font-size: 1.1rem; margin-bottom: 1.8rem; margin-left: auto; margin-right: auto; }
+            .hero-2 .d-flex { justify-content: center; }
+            .hero-graphic { max-width: 270px; margin-top: 1.5rem; }
+            .float-badge-1 { top: 10px; right: 10px; }
+            .float-badge-2 { bottom: 12px; left: 10px; }
+        }
+        @media (max-width: 576px) {
+            .hero-2 { padding: 120px 4% 40px; }
+            .hero-2 .hero-content h1 { font-size: 2.1rem; }
+            .hero-graphic { max-width: 230px; margin-top: 1.5rem; }
+            .hero-float-badge { padding: 0.28rem 0.55rem; gap: 5px; }
+            .hero-float-badge strong { font-size: 0.65rem; }
+            .hero-float-badge span { font-size: 0.54rem; }
+            .hero-float-badge i { width: 20px; height: 20px; font-size: 0.75rem; }
+            .float-badge-1 { top: 8px; right: 8px; }
+            .float-badge-2 { bottom: 10px; left: 8px; }
+        }
+        
+        .glass-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(7, 17, 24, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(45, 212, 191, 0.45);
+            color: #ccfbf1;
+            padding: 0.45rem 1.3rem 0.45rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(13, 148, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-badge:hover {
+            border-color: rgba(45, 212, 191, 0.75);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(13, 148, 136, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .glass-badge i {
+            color: #071118;
+            background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%);
+            font-size: 0.95rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+        }
+        
+        .hero-graphic {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 1 / 1.05;
+            margin: 0 auto;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-frame-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 200px 200px 40px 40px;
+            overflow: hidden;
+            border: 2px solid rgba(45, 212, 191, 0.5);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(13, 148, 136, 0.25);
+            background: #071118;
+            z-index: 2;
+        }
+
+        .hero-img-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .hero-graphic:hover .hero-img-main {
+            transform: scale(1.06);
+        }
+
+        /* Ambient Light Sweep Effect */
+        .hero-frame-wrap::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(45, 212, 191, 0.18) 50%, transparent 60%);
+            transform: rotate(30deg);
+            animation: lightSweep 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes lightSweep {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            50%, 100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        /* Static Elegant Ambient Frame Glow */
+        .hero-graphic::before {
+            content: '';
+            position: absolute;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            border-radius: 215px 215px 55px 55px;
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            background: rgba(13, 148, 136, 0.04);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating Glass Badges */
+        .hero-float-badge {
+            position: absolute;
+            background: rgba(7, 17, 24, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(45, 212, 191, 0.4);
+            border-radius: 50px;
+            padding: 0.4rem 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            animation: floatBadge 5s ease-in-out infinite;
+        }
+
+        .float-badge-1 {
+            top: 20px;
+            right: 15px;
+        }
+
+        .float-badge-2 {
+            bottom: 25px;
+            left: 15px;
+            animation-delay: -2.5s;
+        }
+
+        .hero-float-badge i {
+            font-size: 0.95rem;
+            color: #2dd4bf;
+            background: rgba(45, 212, 191, 0.15);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-float-badge div {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .hero-float-badge strong {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: var(--font-heading);
+        }
+
+        .hero-float-badge span {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-icon-wrapper">
+                    <img src="assets/images/favicon.svg" alt="HavenStay Budget Hotel & Lodge" width="40" height="40">
+                </span>
+                <span class="brand-text-block">
+                    <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                    <span class="brand-tagline">Budget Hotel & Lodge</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Lodge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Room Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Rooms & Tariff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Stay</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Stay</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section 2 -->
+    <header class="hero-2">
+        <div class="container-fluid px-lg-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content text-center text-lg-start">
+                        <div class="glass-badge">
+                            <i class="bi bi-stars"></i> Trusted Budget Hotel & Family Lodge
+                        </div>
+                        <h1>Affordable Rooms <br><span style="color: var(--sunflower-yellow);">& Warm Hospitality</span></h1>
+                        <p>Relax in spotless air-conditioned and economy rooms featuring orthopedic mattresses, complimentary Wi-Fi, 24/7 hot water, and secure parking at pocket-friendly tariffs.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start mt-4">
+                            <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-4 px-md-5 py-3 fs-6 text-nowrap">Reserve Your Room <i class="bi bi-arrow-right ms-2"></i></a>
+                            <a href="gallery.html" class="btn btn-project btn-outline-fest rounded-pill px-4 px-md-5 py-3 fs-6 text-nowrap" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); backdrop-filter: blur(5px);">View Room Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="hero-graphic">
+                        <div class="hero-frame-wrap">
+                            <img src="assets/images/g2.jpg" alt="HavenStay Comfortable Room" class="hero-img-main">
+                        </div>
+                        <div class="hero-float-badge float-badge-1">
+                            <i class="bi bi-tag-fill"></i>
+                            <div>
+                                <strong>From $29/Night</strong>
+                                <span>Direct Best Tariff</span>
+                            </div>
+                        </div>
+                        <div class="hero-float-badge float-badge-2">
+                            <i class="bi bi-shield-check"></i>
+                            <div>
+                                <strong>Spotless Stay</strong>
+                                <span>24/7 Reception</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Comfort Standards & Hospitality -->
+    <section class="section-padding position-relative" style="background: var(--card-bg); overflow: hidden;">
+        <div class="container position-relative z-index-1">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center text-md-start">
+                    <div class="section-title mb-4 text-start">
+                        <span class="badge bg-warning text-dark font-monospace fw-bold px-3 py-1 rounded-pill mb-2">Smart Budget Stays</span>
+                        <h2 class="display-4 fw-bolder text-main lh-sm mt-2 mb-3">Designed for Restful Sleep & Hassle-Free Travel</h2>
+                    </div>
+                    <p class="lead text-muted mb-4 mx-auto mx-md-0" style="max-width: 600px;">
+                        We combine the warmth of a traditional family lodge with modern hotel conveniences. Every room is inspected daily to ensure spotless hygiene, quiet cooling, and reliable connectivity.
+                    </p>
+                    <ul class="list-unstyled mb-5 d-inline-block text-start mx-auto">
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sunflower-yellow);">
+                                <i class="bi bi-moon-stars-fill fs-5"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">Orthopedic Mattresses & Crisp Linens</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sky-orange);">
+                                <i class="bi bi-wifi fs-5"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">Complimentary High-Speed Wi-Fi & TV</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="icon-circle text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%; background: var(--sunflower-yellow);">
+                                <i class="bi bi-shield-check fs-5"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main" style="font-family: var(--font-heading);">24/7 Front Desk, Power Backup & Parking</span>
+                        </li>
+                    </ul>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="about.html" class="btn btn-project btn-primary-fest rounded-pill px-4 px-md-5 py-3 fs-6 shadow-lg">Explore Our Lodge</a>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest rounded-pill px-4 py-3 fs-6">Enquire Stay</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="position-relative">
+                        <img src="assets/images/g3.jpg" class="img-fluid rounded-5 shadow-lg w-100" alt="HavenStay Deluxe Bedroom" style="max-height: 480px; object-fit: cover;">
+                        <div class="position-absolute bottom-0 start-0 m-4 p-3 rounded-4 border d-none d-sm-flex align-items-center gap-3" style="background: rgba(7, 17, 24, 0.88); backdrop-filter: blur(10px); border-color: rgba(45, 212, 191, 0.4) !important;">
+                            <i class="bi bi-patch-check-fill text-warning fs-3"></i>
+                            <div>
+                                <h6 class="text-white mb-0 fw-bold">Verified Clean Lodge Standard</h6>
+                                <small class="text-white-50">100% Sanitized Rooms & 24/7 Reception</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Complete Room Categories & Facilities Grid (6 Cards with Clear Tariffs & CTAs) -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">Rooms & Guest Perks</span>
+                <h2 class="display-5 fw-bolder text-main">Affordable Room Categories & Lodge Facilities</h2>
+                <p class="text-muted lead mt-2 mx-auto" style="max-width: 700px;">Choose from our range of budget-friendly rooms and practical lodge services tailored for solo travelers, couples, families, and tour groups.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Room 1: Economy Single Room -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n9.jpg" class="w-100 h-100 object-fit-cover" alt="Standard Economy Single Room">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">ECONOMY</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Standard Economy Single Room</h4>
+                        <p class="text-muted small flex-grow-1">Ideal for solo travelers and overnight commuters. Features a cozy single bed, ceiling fan, study desk, free Wi-Fi, and private attached hot-water bath.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $29 / Night</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2: Deluxe Double AC Room -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n7.jpg" class="w-100 h-100 object-fit-cover" alt="Deluxe Double AC Room">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">DELUXE AC</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Deluxe Double AC Room</h4>
+                        <p class="text-muted small flex-grow-1">Spacious queen-size orthopedic bed with whisper-quiet split AC, 32" Smart LED TV, electric tea/coffee kettle, and complimentary morning beverage.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $45 / Night</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3: Executive Twin AC Room -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n8.jpg" class="w-100 h-100 object-fit-cover" alt="Executive Twin-Bed AC Room">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">TWIN AC</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Executive Twin-Bed AC Room</h4>
+                        <p class="text-muted small flex-grow-1">Two separate single orthopedic beds with individual reading lamps, air-conditioning, full wardrobe, and work station for colleagues and friends.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $49 / Night</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 4: Super Deluxe Family Suite -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n16.jpg" class="w-100 h-100 object-fit-cover" alt="Super Deluxe Family Suite">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">FAMILY SUITE</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Super Deluxe Family Quad Suite</h4>
+                        <p class="text-muted small flex-grow-1">Accommodates up to 4 adults comfortably with two queen beds, seating lounge, mini-fridge, large bathroom, and complimentary hot breakfast.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $65 / Night</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 5: Traveler Group Dormitory -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n11.jpg" class="w-100 h-100 object-fit-cover" alt="Group Dormitory & Multi-Bed Hall">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">GROUP LODGE</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Group Dormitory & Multi-Bed Hall</h4>
+                        <p class="text-muted small flex-grow-1">Clean, secure multi-bed lodge rooms with lockable storage cabinets, charging sockets at every bed, and shared spotless washrooms for groups.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $18 / Bed</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 6: Homestyle Dining & Travel Desk -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 d-flex flex-column rounded-4 p-4 shadow-sm border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="rounded-4 overflow-hidden mb-4 position-relative" style="height: 220px;">
+                            <img src="assets/images/n10.jpg" class="w-100 h-100 object-fit-cover" alt="In-House Cafe & Room Service">
+                            <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">DINING & CAFE</span>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">In-House Dining & Room Service</h4>
+                        <p class="text-muted small flex-grow-1">Freshly prepared homestyle breakfast, lunch, and dinner served in our clean ground-floor cafe or delivered straight to your room door.</p>
+                        <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
+                            <span class="fw-bold text-warning font-monospace">From $6 / Meal</span>
+                            <a href="quote.html" class="btn btn-sm btn-project btn-outline-fest rounded-pill px-3 py-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="services.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 fw-bold">Explore All Hotel Facilities <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Family Suite & Group Stay Highlight -->
+    <section class="section-padding position-relative" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="row align-items-center flex-lg-row-reverse g-5">
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <div class="position-relative">
+                        <img src="assets/images/19.png" class="img-fluid rounded-5 shadow-lg mx-auto w-100" alt="Spacious Family Suites" style="max-height: 440px; object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold shadow">
+                            FAMILY-FRIENDLY ACCOMMODATION
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-5 text-center text-lg-start">
+                    <div class="section-title text-center text-lg-start mb-4">
+                        <span class="badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold mb-2">Spacious & Convenient</span>
+                        <h2 class="display-5 fw-bolder text-main">Interconnected Family Suites & Long-Stay Comfort</h2>
+                    </div>
+                    <p class="lead text-muted mb-4">Traveling with children, parents, or a group? Our interconnected family lodge suites give everyone plenty of room to unwind without paying for multiple expensive hotel rooms.</p>
+                    <div class="row g-3 mb-4 text-start">
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-4 border" style="background: var(--secondary-bg); border-color: var(--border-color) !important;">
+                                <h6 class="text-warning fw-bold mb-1"><i class="bi bi-award-fill me-1"></i> Extra Beds & Cribs</h6>
+                                <small class="text-muted">Rollaway beds and fresh linen sets available on request for extra guests.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-4 border" style="background: var(--secondary-bg); border-color: var(--border-color) !important;">
+                                <h6 class="text-warning fw-bold mb-1"><i class="bi bi-car-front-fill me-1"></i> Free Gated Parking</h6>
+                                <small class="text-muted">Spacious on-site parking for family cars, SUVs, and tour vans with CCTV monitoring.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="pricing.html" class="btn btn-project btn-primary-fest rounded-pill px-4 py-3 fw-bold">Compare Room Tariffs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Why Choose HavenStay (Trust Pillars & Metrics) -->
+    <section class="section-padding position-relative" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">The HavenStay Standard</span>
+                <h2 class="display-5 fw-bolder text-main">Why Guests Return to Our Lodge Year After Year</h2>
+                <p class="text-muted lead mt-2 mx-auto" style="max-width: 680px;">Over a decade of dependable hospitality, spotless rooms, and honest pricing near the city's main transit hubs.</p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="row g-4 text-center mb-5">
+                <div class="col-6 col-md-3">
+                    <div class="p-4 rounded-4 border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <h2 class="display-4 fw-bolder text-warning mb-1" style="font-family: var(--font-heading);">48+</h2>
+                        <span class="text-muted small text-uppercase fw-bold">Sanitized Rooms</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 rounded-4 border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <h2 class="display-4 fw-bolder text-warning mb-1" style="font-family: var(--font-heading);">24/7</h2>
+                        <span class="text-muted small text-uppercase fw-bold">Front Desk & Check-In</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 rounded-4 border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <h2 class="display-4 fw-bolder text-warning mb-1" style="font-family: var(--font-heading);">50k+</h2>
+                        <span class="text-muted small text-uppercase fw-bold">Happy Guests Hosted</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 rounded-4 border" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <h2 class="display-4 fw-bolder text-warning mb-1" style="font-family: var(--font-heading);">4.9★</h2>
+                        <span class="text-muted small text-uppercase fw-bold">Verified Guest Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Pillars Grid -->
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 h-100 border text-center text-md-start" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="d-inline-flex p-3 rounded-circle text-warning mb-3" style="background: rgba(13, 148, 136, 0.12); font-size: 1.75rem;">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2">Zero Hidden Booking Fees</h4>
+                        <p class="text-muted small mb-0">What you see on our tariff card is what you pay. No surprise service fees, no mandatory resort charges, and free cancellation up to 24 hours before arrival.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 h-100 border text-center text-md-start" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="d-inline-flex p-3 rounded-circle text-warning mb-3" style="background: rgba(13, 148, 136, 0.12); font-size: 1.75rem;">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2">Hospital-Grade Room Hygiene</h4>
+                        <p class="text-muted small mb-0">Every room undergoes a 15-point housekeeping checklist including disinfected washrooms, steamed linens, and fresh sealed towels prior to check-in.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 h-100 border text-center text-md-start" style="background: var(--card-bg); border-color: var(--border-color) !important;">
+                        <div class="d-inline-flex p-3 rounded-circle text-warning mb-3" style="background: rgba(13, 148, 136, 0.12); font-size: 1.75rem;">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4 class="fw-bold text-main mb-2">Prime Transit Connectivity</h4>
+                        <p class="text-muted small mb-0">Situated just 5 minutes from the central railway station and inter-city bus terminal, with easy cab availability and local sightseeing assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Verified Guest Testimonials -->
+    <section class="section-padding position-relative" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">Guest Praise</span>
+                <h2 class="display-5 fw-bolder text-main">What Travelers & Families Say About HavenStay</h2>
+                <p class="text-muted lead mt-2 mx-auto" style="max-width: 650px;">Read verified reviews from guests who chose HavenStay Budget Hotel & Lodge for their stay.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column" style="background: var(--secondary-bg); border-color: var(--border-color) !important;">
+                        <div class="text-warning mb-3 fs-5">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted small flex-grow-1">"Our family of four stayed in the Super Deluxe Family Suite for three nights. The beds were super comfortable, the AC cooled the room in minutes, and the tariff was half what nearby hotels charged!"</p>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top" style="border-color: var(--border-color) !important;">
+                            <div>
+                                <h6 class="text-main fw-bold mb-0">Sophia & Ethan R.</h6>
+                                <small class="text-muted">3-Night Family Stay</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column" style="background: var(--secondary-bg); border-color: var(--border-color) !important;">
+                        <div class="text-warning mb-3 fs-5">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted small flex-grow-1">"As a solo female traveler, safety and cleanliness are my top priorities. HavenStay has 24/7 reception staff, bright corridors with CCTV, and spotless bathrooms. Highly recommended!"</p>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top" style="border-color: var(--border-color) !important;">
+                            <div>
+                                <h6 class="text-main fw-bold mb-0">Victoria Bennett</h6>
+                                <small class="text-muted">Solo Business Traveler</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="p-4 rounded-4 border h-100 d-flex flex-column" style="background: var(--secondary-bg); border-color: var(--border-color) !important;">
+                        <div class="text-warning mb-3 fs-5">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted small flex-grow-1">"Checked in at 1:30 AM after a delayed train and the night receptionist had our Deluxe Double room ready in two minutes. Hot shower, crisp bedsheets, and great morning coffee."</p>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top" style="border-color: var(--border-color) !important;">
+                            <div>
+                                <h6 class="text-main fw-bold mb-0">Marcus Vance</h6>
+                                <small class="text-muted">Overnight Transit Guest</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Interactive Room Tariff & Stay Estimator -->
+    <section class="section-padding overflow-hidden position-relative" style="background: linear-gradient(135deg, #071118 0%, #0d232e 100%); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container position-relative z-1">
+            <div class="section-title text-center mb-5">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase mb-2" style="letter-spacing: 1.5px;">Interactive Tariff Calculator</span>
+                <h2 class="display-5 fw-bolder text-white">Estimate Your Stay & Room Tariff</h2>
+                <p class="text-white-50 lead mx-auto" style="max-width: 700px;">Select your preferred room options and number of nights below to calculate an instant stay estimate.</p>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <!-- Interactive Controls -->
+                <div class="col-lg-7">
+                    <div class="p-4 p-md-5 rounded-5" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                        <h4 class="text-white fw-bold mb-4" style="font-family: var(--font-heading);">1. Select Room Type & Stay Add-Ons</h4>
+                        
+                        <div class="d-flex flex-column gap-3 mb-4">
+                            <!-- Option 1: Deluxe AC Room -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--sunflower-yellow); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-uplighting" checked onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Upgrade to Deluxe Double AC Room</h6>
+                                        <small class="text-white-50">Split air-conditioning, queen orthopedic bed & smart TV</small>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$16/night</span>
+                            </label>
+
+                            <!-- Option 2: Family Suite Upgrade -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-draping" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Super Deluxe Family Quad Suite (4 Guests)</h6>
+                                        <span class="small text-white-50">Two queen beds, seating lounge & mini-fridge</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$36/night</span>
+                            </label>
+
+                            <!-- Option 3: Breakfast Combo -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-chandelier" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Daily Homestyle Hot Breakfast & Coffee</h6>
+                                        <span class="small text-white-50">Freshly prepared morning breakfast in cafe or room</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$10/night</span>
+                            </label>
+
+                            <!-- Option 4: Extra Rollaway Bed -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-gobo" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Extra Rollaway Mattress & Linen Kit</h6>
+                                        <span class="small text-white-50">Additional single bed setup with pillow & blanket</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$10/night</span>
+                            </label>
+
+                            <!-- Option 5: Station Pickup -->
+                            <label class="customizer-option-card d-flex align-items-center justify-content-between p-3 rounded-4 cursor-pointer" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="checkbox" id="opt-pinspot" onchange="calcEstimate()" class="form-check-input mt-0" style="width: 22px; height: 22px; accent-color: var(--sunflower-yellow);">
+                                    <div>
+                                        <h6 class="text-white fw-bold mb-0">Railway / Airport Pickup & Flex Check-In</h6>
+                                        <span class="small text-white-50">Dedicated cab pickup + 2-hour early check-in pass</span>
+                                    </div>
+                                </div>
+                                <span class="text-warning fw-bold font-monospace">+$15/stay</span>
+                            </label>
+                        </div>
+
+                        <!-- Nights Stay Scale Range -->
+                        <div>
+                            <div class="d-flex justify-content-between text-white mb-2">
+                                <label class="fw-bold">Duration of Stay (Nights):</label>
+                                <span id="guest-count-label" class="fw-bold font-monospace text-warning">2 Nights</span>
+                            </div>
+                            <input type="range" class="form-range" id="guest-range" min="1" max="10" step="1" value="2" oninput="calcEstimate()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant Estimate Card -->
+                <div class="col-lg-5">
+                    <div class="p-4 p-md-5 rounded-5 text-center position-relative overflow-hidden shadow-lg" style="background: var(--card-bg); border: 1px solid var(--sunflower-yellow);">
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace text-uppercase fw-bold mb-3">ESTIMATED STAY TARIFF</span>
+                        
+                        <div class="my-4">
+                            <span class="text-muted small d-block">Estimated Total Room Tariff</span>
+                            <h1 class="display-3 fw-bolder mb-0" id="total-estimate-price" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">$90</h1>
+                            <small class="text-muted">Base Economy Room ($29/night) + selected upgrades</small>
+                        </div>
+
+                        <div class="text-start p-3 rounded-4 mb-4" style="background: var(--secondary-bg);">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-shield-check text-warning fs-5"></i>
+                                <strong class="text-main">Complimentary Inclusions:</strong>
+                            </div>
+                            <ul class="list-unstyled text-muted small mb-0 pe-2">
+                                <li>✓ Free High-Speed Fiber Wi-Fi in Room</li>
+                                <li>✓ 24/7 Hot Water, Lift & Power Backup</li>
+                                <li>✓ Free On-Site Gated Car & Bike Parking</li>
+                            </ul>
+                        </div>
+
+                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold fs-6">
+                            Enquire & Book This Tariff <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function calcEstimate() {
+                let nightly = 29;
+                if (document.getElementById('opt-uplighting').checked) nightly += 16;
+                if (document.getElementById('opt-draping').checked) nightly += 36;
+                if (document.getElementById('opt-chandelier').checked) nightly += 10;
+                if (document.getElementById('opt-gobo').checked) nightly += 10;
+
+                const nights = parseInt(document.getElementById('guest-range').value);
+                document.getElementById('guest-count-label').innerText = nights + (nights === 1 ? " Night" : " Nights");
+
+                let total = nightly * nights;
+                if (document.getElementById('opt-pinspot').checked) total += 15;
+
+                document.getElementById('total-estimate-price').innerText = "$" + total.toLocaleString();
+
+                // Highlight border when selected
+                const checkboxes = ['opt-uplighting', 'opt-draping', 'opt-chandelier', 'opt-gobo', 'opt-pinspot'];
+                checkboxes.forEach(id => {
+                    const cb = document.getElementById(id);
+                    const card = cb.closest('.customizer-option-card');
+                    if (cb.checked) {
+                        card.style.borderColor = 'var(--sunflower-yellow)';
+                        card.style.background = 'rgba(13, 148, 136, 0.18)';
+                    } else {
+                        card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                        card.style.background = 'rgba(255, 255, 255, 0.05)';
+                    }
+                });
+            }
+            // Initial call
+            calcEstimate();
+        </script>
+    </section>
+
+    <!-- Section 7: Final Booking Consultation & Room Reservation CTA -->
+    <section class="section-padding position-relative" style="background: var(--card-bg);">
+        <div class="container">
+            <div class="p-4 p-md-5 rounded-5 border position-relative overflow-hidden shadow-lg" style="background: linear-gradient(135deg, rgba(13, 148, 136, 0.16) 0%, rgba(7, 17, 24, 0.95) 100%), var(--secondary-bg); border-color: rgba(45, 212, 191, 0.3) !important;">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8 text-center text-lg-start">
+                        <span class="badge bg-warning text-dark font-monospace fw-bold px-3 py-1 rounded-pill mb-2">DIRECT BOOKING DISCOUNTS AVAILABLE</span>
+                        <h2 class="display-5 fw-bolder text-white mb-2" style="font-family: var(--font-heading);">Reserve Your Room Direct & Save on Nightly Tariffs</h2>
+                        <p class="text-white-50 lead mb-0">Our 24/7 reservation desk provides instant room availability confirmation for solo guests, families, and corporate bookings.</p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <div class="d-flex flex-column gap-2">
+                            <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-4 py-3 fw-bold fs-6 shadow">Send Booking Enquiry</a>
+                            <a href="contact.html" class="btn btn-outline-fest rounded-pill px-4 py-3 fw-semibold text-white">Contact Front Desk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo" href="index.html">
+                        <span class="brand-icon-wrapper">
+                            <img src="assets/images/favicon.svg" alt="HavenStay" width="38" height="38">
+                        </span>
+                        <span class="brand-text-block">
+                            <span class="brand-title">Haven<span class="brand-accent">Stay</span></span>
+                            <span class="brand-tagline">Budget Hotel & Lodge</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Clean, comfortable, and affordable rooms with 24/7 reception, free Wi-Fi, and family-friendly service.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Lodge</a></li>
+                        <li><a href="services.html">Facilities</a></li>
+                        <li><a href="pricing.html">Rooms & Tariff</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Guest Links</h5>
+                    <ul>
+                        <li><a href="gallery.html">Room Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="quote.html">Booking Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Room Availability Enquiry</h5>
+                    <p class="text-muted">Check room availability and get our best direct nightly tariff.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Room Stay</a>
+                </div>
+            </div>
+            <hr class="my-5 border-warning opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 HavenStay Budget Hotel & Lodge. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
