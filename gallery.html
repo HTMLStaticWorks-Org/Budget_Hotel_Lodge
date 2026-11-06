@@ -119,12 +119,18 @@
             transform: translateY(20px);
             transition: transform 0.4s ease;
         }
+        .project-overlay span {
+            color: #2dd4bf !important;
+            font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+        }
         .bento-overlay span {
-            color: var(--sunflower-yellow);
+            color: #2dd4bf !important;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
             transform: translateY(20px);
             transition: transform 0.4s ease;
             transition-delay: 0.1s;
@@ -184,23 +190,18 @@
                     <li class="nav-item"><a class="nav-link active" href="gallery.html">Room Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Rooms & Tariff</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item d-lg-none mt-2">
-                        <div class="d-flex gap-2 px-2 pb-2">
-                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Stay</button>
-                        </div>
-                    </li>
                 </ul>
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 mt-3 mt-xl-0">
                     <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
                     <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
-                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Stay</button>
+                    <button class="btn btn-project btn-primary-fest btn-sm" onclick="location.href='quote.html'">Enquire Stay</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="section-padding text-center position-relative" style="background: url('assets/images/n1.jpg') center/cover no-repeat;">
+    <header class="section-padding text-center position-relative" style="background: url('https://images.trvl-media.com/lodging/28000000/27440000/27437000/27436965/b884d5ec.jpg?impolicy=fcrop&w=1200&h=800') center/cover no-repeat;">
         <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(7, 17, 24, 0.82);"></div>
         <div class="container position-relative z-1">
             <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">Inside HavenStay</span>
@@ -232,7 +233,7 @@
                 <div class="col-lg-6 gallery-item" data-category="uplighting">
                     <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
                         <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
-                            <img src="assets/images/n2.jpg" alt="Standard Economy Single & Twin Room" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <img src="https://www.hotel-globus.com/app/uploads/2019/03/Globus-91-1920x1080.jpg" alt="Standard Economy Single & Twin Room" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">ECONOMY ROOM</span>
                         </div>
                         <div class="p-4">
@@ -246,7 +247,7 @@
                 <div class="col-lg-6 gallery-item" data-category="draping">
                     <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
                         <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
-                            <img src="assets/images/n3.jpg" alt="Deluxe Double AC Bedroom" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/30/0c/bd/ac-deluxe-double-bed.jpg" alt="Deluxe Double AC Bedroom" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">DELUXE AC ROOM</span>
                         </div>
                         <div class="p-4">
@@ -260,7 +261,7 @@
                 <div class="col-lg-6 gallery-item" data-category="chandeliers">
                     <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
                         <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
-                            <img src="assets/images/n4.jpg" alt="Super Deluxe Family Quad Suite" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTncENKec7eeSXi24rosvKEnEYI_CRvfjKmNWJmaSSRxc_we8aYQ9aaSIp8&s=10" alt="Super Deluxe Family Quad Suite" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">FAMILY SUITE</span>
                         </div>
                         <div class="p-4">
@@ -274,7 +275,7 @@
                 <div class="col-lg-6 gallery-item" data-category="gobos">
                     <div class="transformation-card rounded-5 overflow-hidden shadow-lg border h-100" style="border-color: var(--border-color) !important; background: var(--card-bg);">
                         <div class="transform-img-wrap position-relative overflow-hidden" style="height: 340px;">
-                            <img src="assets/images/n5.jpg" alt="In-House Homestyle Dining & Reception" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
+                            <img src="https://cdn.home-designing.com/wp-content/uploads/2024/01/glamourous-house-reception-1024x722.jpg" alt="In-House Homestyle Dining & Reception" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill font-monospace fw-bold">DINING & LOBBY</span>
                         </div>
                         <div class="p-4">
@@ -299,60 +300,60 @@
             <div class="row g-4 mt-4">
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="uplighting">
                     <div class="project-card">
-                        <img src="assets/images/n6.jpg" alt="Economy Single Room">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUmCPILnBy1E6gAXAPX218iq8UFjfWN-evnAU0Rc_Hs7X0YnEoLEH8XTj3&s=10" alt="Economy Single Room">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Economy Stay</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Economy Stay</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Cozy Solo Traveler Bedroom</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="draping">
                     <div class="project-card">
-                        <img src="assets/images/n7.jpg" alt="Deluxe Queen Bed">
+                        <img src="https://interio.com/media/catalog/product/5/6/56101508sd01805_a2_1440x810_1.jpg" alt="Deluxe Queen Bed">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Deluxe AC</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Deluxe AC</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Queen Bed & Fresh Cotton Linens</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="chandeliers">
                     <div class="project-card">
-                        <img src="assets/images/n8.jpg" alt="Family Quad Suite">
+                        <img src="https://assets.langhamhotels.com/is/image/langhamhotelsstage/CDHKG_family_quad_slide01:Medium?wid=674&hei=380" alt="Family Quad Suite">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Family Suite</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Family Suite</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Spacious 4-Guest Family Room</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="uplighting">
                     <div class="project-card">
-                        <img src="assets/images/n9.jpg" alt="Executive Twin Room">
+                        <img src="https://assets.simplotel.com/simplotel/image/upload/w_1920,h_1280,c_fill,q_80/triumph-regency/Executive_Twin_37c32e32.jpg" alt="Executive Twin Room">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Twin AC Room</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Twin AC Room</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Twin Orthopedic Beds & Work Desk</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="festoon">
                     <div class="project-card">
-                        <img src="assets/images/n10.jpg" alt="Courtyard & Parking">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpX7gR6GR4mciynf6-b9EtyZmYgfy0pJPgPLN3y-ZfFAuFO8lCTiODsGL6&s=10" alt="Courtyard & Parking">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Lodge Exterior</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Lodge Exterior</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Evening Courtyard & Gated Parking</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item" data-category="gobos">
                     <div class="project-card">
-                        <img src="assets/images/n11.jpg" alt="In-House Dining Cafe">
+                        <img src="https://assets.architecturaldigest.in/photos/69b3d98efac67a5b1c84cddc/master/w_1600%2Cc_limit/restaurant_1.jpg" alt="In-House Dining Cafe">
                         <div class="project-badge-icon"><i class="bi bi-search"></i></div>
                         <div class="project-overlay">
-                            <span class="small fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Dining Hall</span>
+                            <span class="small fw-bold text-uppercase tracking-wider" style="color: #2dd4bf !important;">Dining Hall</span>
                             <h5 class="text-white mb-0 mt-1" style="font-family: var(--font-heading);">Fresh Homestyle Breakfast & Cafe</h5>
                         </div>
                     </div>
@@ -376,42 +377,42 @@
             
             <div class="bento-gallery mt-5">
                 <div class="bento-item bento-large group">
-                    <img src="assets/images/n12.jpg" alt="Super Deluxe Family Suite">
+                    <img src="https://www.shivalikriverretreat.com/images/room/super-deluxe-non-ac-01.jpg" alt="Super Deluxe Family Suite">
                     <div class="bento-overlay">
                         <h5>Super Deluxe Family Suite</h5>
                         <span>Spacious 4-Guest Lodge Accommodation</span>
                     </div>
                 </div>
                 <div class="bento-item bento-tall group">
-                    <img src="assets/images/n13.jpg" alt="Reception & Corridor">
+                    <img src="https://media.istockphoto.com/id/2225001143/photo/a-long-empty-hotel-hallway.jpg?s=612x612&w=0&k=20&c=K4mbXz-uXOaEOB4-bBWRH55fE6KSV7XvzO_g52djAFY=" alt="Reception & Corridor">
                     <div class="bento-overlay">
                         <h5>24/7 Front Desk & Elevator Lobby</h5>
                         <span>Express Guest Check-In</span>
                     </div>
                 </div>
                 <div class="bento-item group">
-                    <img src="assets/images/n14.jpg" alt="Fresh Cotton Bedding">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQDZ2DXs5nxdy2LcNVEJ831B0W7OHYZeGw-0P4Vq893Jo8OWZOmD0FjOw&s=10" alt="Fresh Cotton Bedding">
                     <div class="bento-overlay">
                         <h5>Sanitized Cotton Bedding</h5>
                         <span>Daily Housekeeping</span>
                     </div>
                 </div>
                 <div class="bento-item group">
-                    <img src="assets/images/n15.jpg" alt="Warm Room Lighting">
+                    <img src="https://i.pinimg.com/736x/70/48/93/704893336d980cc8195c89fb9ed213cb.jpg" alt="Warm Room Lighting">
                     <div class="bento-overlay">
                         <h5>Relaxing Bedroom Ambiance</h5>
                         <span>Deluxe AC Wing</span>
                     </div>
                 </div>
                 <div class="bento-item bento-wide group">
-                    <img src="assets/images/n16.jpg" alt="Group & Conference Lounge">
+                    <img src="https://www.wework.com/ideas/wp-content/uploads/sites/4/2019/08/Web_72DPI-20180111-WeWork-Cervantes-Conference-Room-15G-1.jpg" alt="Group & Conference Lounge">
                     <div class="bento-overlay">
                         <h5>Family & Group Seating Lounge</h5>
                         <span>Interconnected Suites & Dormitory</span>
                     </div>
                 </div>
                 <div class="bento-item bento-wide group">
-                    <img src="assets/images/n17.jpg" alt="Outdoor Terrace Cafe">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/edc020124munoz-006-6557ca2a39580.jpg?crop=1.00xw:0.786xh;0,0.214xh&resize=1120:*" alt="Outdoor Terrace Cafe">
                     <div class="bento-overlay">
                         <h5>Ground-Floor Cafe & Courtyard</h5>
                         <span>Morning Tea, Breakfast & Parking</span>
@@ -435,7 +436,7 @@
                             <span class="brand-tagline">Budget Hotel & Lodge</span>
                         </span>
                     </a>
-                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Clean, comfortable, and affordable single, double AC, and family suite rooms for every traveler.</p>
+                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Offering clean, safe, and affordable AC & Non-AC rooms, family suites, and 24/7 hospitality in the heart of the city.</p>
                     <div class="social-icons mt-3">
                         <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -453,17 +454,21 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 footer-links">
-                    <h5>Explore</h5>
+                    <h5>Accommodations</h5>
                     <ul>
+                        <li><a href="pricing.html">Economy Single</a></li>
+                        <li><a href="pricing.html">Deluxe Double AC</a></li>
+                        <li><a href="pricing.html">Family Quad Suite</a></li>
                         <li><a href="gallery.html">Room Gallery</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="quote.html">Booking Enquiry</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5>Check Room Availability</h5>
-                    <p class="text-muted">Contact our 24/7 front desk to reserve your room today.</p>
-                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Room Stay</a>
+                    <h5>Special Tariff Offers</h5>
+                    <p class="text-muted">Subscribe for seasonal room discounts and direct booking deals.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-2 mb-3">
+                        <input type="email" class="form-control rounded-pill px-3 py-2 border-warning" placeholder="Email address" style="background: var(--card-bg); color: var(--text-main); border-color: var(--border-color) !important;">
+                        <button class="btn btn-project btn-primary-fest rounded-pill px-4 py-2 text-nowrap" type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
             <hr class="my-5 border-warning opacity-25">

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facilities & Guest Amenities | HavenStay Budget Hotel & Lodge</title>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <meta name="description" content="Explore HavenStay Budget Hotel & Lodge facilities: 24/7 front desk, free high-speed Wi-Fi, homestyle dining cafe, secured parking, daily housekeeping, and travel desk.">
-    
+    <meta name="description"
+        content="Explore HavenStay Budget Hotel & Lodge facilities: 24/7 front desk, free high-speed Wi-Fi, homestyle dining cafe, secured parking, daily housekeeping, and travel desk.">
+
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/rtl.css">
-    
+
     <style>
         .vibe-card {
             height: 450px;
@@ -27,12 +29,14 @@
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid var(--border-color);
         }
+
         .vibe-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 1s ease;
         }
+
         .vibe-overlay {
             position: absolute;
             inset: 0;
@@ -46,21 +50,26 @@
             opacity: 0;
             transform: translateY(30px);
         }
+
         .vibe-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 30px 60px var(--shadow-glow);
         }
+
         .vibe-card:hover img {
             transform: scale(1.1);
         }
+
         .vibe-card:hover .vibe-overlay {
             opacity: 1;
             transform: translateY(0);
             background: linear-gradient(to top, var(--sunflower-yellow) 0%, rgba(7, 17, 24, 0.75) 100%);
         }
+
         .vibe-card:hover .vibe-overlay * {
             color: #ffffff !important;
         }
+
         .vibe-tag {
             position: absolute;
             top: 2rem;
@@ -84,27 +93,32 @@
             overflow: hidden;
             position: relative;
         }
+
         .anatomy-image-wrap {
             position: relative;
             height: 100%;
             min-height: 400px;
         }
+
         .anatomy-image-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: contrast(1.1);
         }
+
         .spec-item {
             margin-bottom: 2rem;
             opacity: 0;
             transform: translateX(40px);
             transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         }
+
         .spec-item.revealed {
             opacity: 1;
             transform: translateX(0);
         }
+
         .spec-label {
             color: var(--sunflower-yellow);
             font-weight: 500;
@@ -114,12 +128,14 @@
             display: block;
             margin-bottom: 0.5rem;
         }
+
         .spec-value {
             font-size: 1.5rem;
             font-weight: 600;
             display: block;
             font-family: var(--font-heading);
         }
+
         .pulse-badge {
             width: 120px;
             height: 120px;
@@ -139,13 +155,26 @@
             animation: pulse-primary 2s infinite;
             z-index: 5;
         }
+
         @keyframes pulse-primary {
-            0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); transform: translate(-50%, -50%) scale(1); }
-            70% { box-shadow: 0 0 0 30px rgba(13, 148, 136, 0); transform: translate(-50%, -50%) scale(1.05); }
-            100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); transform: translate(-50%, -50%) scale(1); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4);
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            70% {
+                box-shadow: 0 0 0 30px rgba(13, 148, 136, 0);
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
     </style>
 </head>
+
 <body data-theme="light">
 
     <!-- Navbar -->
@@ -172,28 +201,32 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Room Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Rooms & Tariff</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item d-lg-none mt-2">
-                        <div class="d-flex gap-2 px-2 pb-2">
-                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Enquire Stay</button>
-                        </div>
-                    </li>
                 </ul>
-                <div class="d-flex align-items-center gap-2">
-                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
-                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
-                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Enquire Stay</button>
+                <div class="d-flex align-items-center gap-2 mt-3 mt-xl-0">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold"
+                        style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm"
+                        style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill"
+                            style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm" onclick="location.href='quote.html'">Enquire
+                        Stay</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="section-padding text-center position-relative" style="background: url('assets/images/n26.jpg') center/cover no-repeat;">
+    <header class="section-padding text-center position-relative"
+        style="background: url('https://thesevenhotels.com/wp-content/uploads/2023/10/10-2.png') center/cover no-repeat;">
         <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(7, 17, 24, 0.8);"></div>
         <div class="container position-relative z-1">
-            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase" style="letter-spacing: 1.5px;">Comfort & Convenience</span>
-            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Hotel & Lodge Facilities</h1>
-            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Thoughtful guest amenities including 24/7 front desk support, free high-speed Wi-Fi, homestyle dining, gated parking, and daily housekeeping for a worry-free stay.</p>
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill font-monospace fw-bold text-uppercase"
+                style="letter-spacing: 1.5px;">Comfort & Convenience</span>
+            <h1 class="display-3 fw-bold text-white" style="font-family: var(--font-heading);">Hotel & Lodge Facilities
+            </h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 750px;">Thoughtful guest amenities including 24/7
+                front desk support, free high-speed Wi-Fi, homestyle dining, gated parking, and daily housekeeping for a
+                worry-free stay.</p>
         </div>
     </header>
 
@@ -205,14 +238,15 @@
                 <div class="col-lg-4 col-md-6" id="uplighting">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/n27.jpg" alt="24/7 Front Desk & Express Check-In">
+                            <img src="https://media.istockphoto.com/id/2093530578/photo/happy-receptionists-cooperating-while-working-on-a-computer-at-hotel-front-desk.jpg?s=612x612&w=0&k=20&c=wbCLdNtAEeGNlzSNKowkduOrRDFQ2sURY6MnTIxvbh4=" alt="24/7 Front Desk & Express Check-In">
                         </div>
                         <h3 style="font-family: var(--font-heading);">24/7 Front Desk & Express Check-In</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Essential Facility</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">24 Hours Open</span>
                         </div>
-                        <p class="text-muted">Round-the-clock reception desk ready for early morning arrivals, late-night transit check-ins, wake-up calls, and instant billing.</p>
+                        <p class="text-muted">Round-the-clock reception desk ready for early morning arrivals,
+                            late-night transit check-ins, wake-up calls, and instant billing.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Enquire Stay</a>
                     </div>
                 </div>
@@ -220,14 +254,15 @@
                 <div class="col-lg-4 col-md-6" id="draping">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/n28.jpg" alt="High-Speed Fiber Wi-Fi & Work Desks">
+                            <img src="https://www.techlicious.com/images/computers/man-working-on-laptop-hotel-room-1600px.jpg" alt="High-Speed Fiber Wi-Fi & Work Desks">
                         </div>
                         <h3 style="font-family: var(--font-heading);">Free High-Speed Wi-Fi & Work Desks</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Complimentary</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">Included Free</span>
                         </div>
-                        <p class="text-muted">Dedicated fiber-optic Wi-Fi coverage in every bedroom and lobby area, paired with ergonomic desks and universal power sockets.</p>
+                        <p class="text-muted">Dedicated fiber-optic Wi-Fi coverage in every bedroom and lobby area,
+                            paired with ergonomic desks and universal power sockets.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Enquire Stay</a>
                     </div>
                 </div>
@@ -235,14 +270,15 @@
                 <div class="col-lg-4 col-md-6" id="chandeliers">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/n29.jpg" alt="In-House Homestyle Dining & Cafe">
+                            <img src="https://www.designpataki.com/wp-content/uploads/2025/01/Feature-Image.jpg" alt="In-House Homestyle Dining & Cafe">
                         </div>
                         <h3 style="font-family: var(--font-heading);">In-House Homestyle Dining & Cafe</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Fresh Meals</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">Cafe & Room Service</span>
                         </div>
-                        <p class="text-muted">Hygienic ground-floor dining hall serving hot breakfast, homestyle lunch and dinner thalis, snacks, and fresh tea/coffee all day.</p>
+                        <p class="text-muted">Hygienic ground-floor dining hall serving hot breakfast, homestyle lunch
+                            and dinner thalis, snacks, and fresh tea/coffee all day.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Enquire Dining</a>
                     </div>
                 </div>
@@ -250,14 +286,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/n30.jpg" alt="Complimentary Gated Parking & EV Bay">
+                            <img src="https://www.thegreenify.com/_next/image?url=%2Fimages%2Fproducts%2Fev-charging%2Fcommercial-parking-ev-charging-installation.jpg&w=3840&q=75" alt="Complimentary Gated Parking & EV Bay">
                         </div>
                         <h3 style="font-family: var(--font-heading);">Complimentary Gated Parking</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Safe & Monitored</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">Included Free</span>
                         </div>
-                        <p class="text-muted">Spacious on-site gated parking lot with 24/7 CCTV surveillance and security guard for private cars, two-wheelers, and tour vans.</p>
+                        <p class="text-muted">Spacious on-site gated parking lot with 24/7 CCTV surveillance and
+                            security guard for private cars, two-wheelers, and tour vans.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Reserve Parking Bay</a>
                     </div>
                 </div>
@@ -265,14 +302,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/22.png" alt="Daily Housekeeping & Express Laundry">
+                            <img src="https://content.jdmagicbox.com/v2/comp/chennai/g8/044pxx44.xx44.240707091936.j3g8/catalogue/laundry-boy-semmancheri-chennai-laundry-services-1l022f590c.jpg" alt="Daily Housekeeping & Express Laundry">
                         </div>
                         <h3 style="font-family: var(--font-heading);">Daily Housekeeping & Laundry</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Spotless Hygiene</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">Daily Service</span>
                         </div>
-                        <p class="text-muted">Daily room cleaning, fresh bedsheet and towel replacement, sanitized attached bathrooms, and same-day wash & iron laundry service.</p>
+                        <p class="text-muted">Daily room cleaning, fresh bedsheet and towel replacement, sanitized
+                            attached bathrooms, and same-day wash & iron laundry service.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Enquire Long Stay</a>
                     </div>
                 </div>
@@ -280,14 +318,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="img-wrapper">
-                            <img src="assets/images/23.png" alt="Travel Desk, Cab Booking & Luggage Room">
+                            <img src="https://www.ktcindia.com/wp-content/uploads/2026/06/best-hotel-ticketing-company-for-corporates.jpg" alt="Travel Desk, Cab Booking & Luggage Room">
                         </div>
                         <h3 style="font-family: var(--font-heading);">Travel Desk & Luggage Cloakroom</h3>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="badge bg-warning text-dark">Transit Support</span>
                             <span class="fw-bold" style="color: var(--sunflower-yellow);">24/7 Assistance</span>
                         </div>
-                        <p class="text-muted">Reliable railway/airport pickup drops, local sightseeing cab arrangements, and secure luggage storage before check-in or after check-out.</p>
+                        <p class="text-muted">Reliable railway/airport pickup drops, local sightseeing cab arrangements,
+                            and secure luggage storage before check-in or after check-out.</p>
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100">Enquire Travel Help</a>
                     </div>
                 </div>
@@ -301,64 +340,89 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5">
                     <div class="sticky-top" style="top: 120px; z-index: 10;">
-                        <span class="fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">The HavenStay Difference</span>
-                        <h2 class="display-4 fw-bolder text-main mt-2 mb-4" style="font-family: var(--font-heading);">Why Travelers Love Staying With Us</h2>
-                        <p class="lead text-muted mb-4">We focus on the practical essentials that matter most to travelers: a deep night's sleep, hot running water, uninterrupted power, and safe surroundings.</p>
-                        <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 shadow-lg">Send Booking Enquiry</a>
+                        <span class="fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">The
+                            HavenStay Difference</span>
+                        <h2 class="display-4 fw-bolder text-main mt-2 mb-4" style="font-family: var(--font-heading);">
+                            Why Travelers Love Staying With Us</h2>
+                        <p class="lead text-muted mb-4">We focus on the practical essentials that matter most to
+                            travelers: a deep night's sleep, hot running water, uninterrupted power, and safe
+                            surroundings.</p>
+                        <a href="quote.html"
+                            class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 shadow-lg">Send Booking
+                            Enquiry</a>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row g-4">
                         <!-- Card 1 -->
                         <div class="col-md-6">
-                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card" style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
-                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon" style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sunflower-yellow); transition: all 0.4s ease;">
+                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card"
+                                style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
+                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon"
+                                    style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sunflower-yellow); transition: all 0.4s ease;">
                                     <i class="bi bi-lightning-charge-fill"></i>
                                 </div>
-                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1" style="font-family: var(--font-heading);">100% Power Backup</h3>
-                                <p class="text-muted position-relative z-index-1">Heavy-duty automatic generator backup keeps air-conditioners, lifts, lights, and Wi-Fi running without interruption.</p>
+                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1"
+                                    style="font-family: var(--font-heading);">100% Power Backup</h3>
+                                <p class="text-muted position-relative z-index-1">Heavy-duty automatic generator backup
+                                    keeps air-conditioners, lifts, lights, and Wi-Fi running without interruption.</p>
                             </div>
                         </div>
                         <!-- Card 2 -->
                         <div class="col-md-6 mt-md-5">
-                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card" style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
-                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon" style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sky-orange); transition: all 0.4s ease;">
+                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card"
+                                style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
+                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon"
+                                    style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sky-orange); transition: all 0.4s ease;">
                                     <i class="bi bi-droplet-fill"></i>
                                 </div>
-                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1" style="font-family: var(--font-heading);">24/7 Hot & Cold Water</h3>
-                                <p class="text-muted position-relative z-index-1">Every attached western bathroom features instant hot-water geysers, high-pressure showers, and clean toiletries.</p>
+                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1"
+                                    style="font-family: var(--font-heading);">24/7 Hot & Cold Water</h3>
+                                <p class="text-muted position-relative z-index-1">Every attached western bathroom
+                                    features instant hot-water geysers, high-pressure showers, and clean toiletries.</p>
                             </div>
                         </div>
                         <!-- Card 3 -->
                         <div class="col-md-6">
-                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card" style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
-                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon" style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sunflower-yellow); transition: all 0.4s ease;">
+                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card"
+                                style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
+                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon"
+                                    style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sunflower-yellow); transition: all 0.4s ease;">
                                     <i class="bi bi-shield-lock-fill"></i>
                                 </div>
-                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1" style="font-family: var(--font-heading);">Safe & Family Friendly</h3>
-                                <p class="text-muted position-relative z-index-1">24/7 CCTV surveillance, well-lit corridors, fire safety compliance, and doctor-on-call assistance for total peace of mind.</p>
+                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1"
+                                    style="font-family: var(--font-heading);">Safe & Family Friendly</h3>
+                                <p class="text-muted position-relative z-index-1">24/7 CCTV surveillance, well-lit
+                                    corridors, fire safety compliance, and doctor-on-call assistance for total peace of
+                                    mind.</p>
                             </div>
                         </div>
                         <!-- Card 4 -->
                         <div class="col-md-6 mt-md-5">
-                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card" style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
-                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon" style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sky-orange); transition: all 0.4s ease;">
+                            <div class="p-4 p-md-5 rounded-4 h-100 position-relative overflow-hidden premium-feature-card"
+                                style="background: var(--card-bg); border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease;">
+                                <div class="position-absolute top-0 end-0 p-4 feature-bg-icon"
+                                    style="opacity: 0.05; font-size: 6rem; line-height: 0; color: var(--sky-orange); transition: all 0.4s ease;">
                                     <i class="bi bi-building-up"></i>
                                 </div>
-                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1" style="font-family: var(--font-heading);">Elevator & Easy Access</h3>
-                                <p class="text-muted position-relative z-index-1">Modern passenger lift serving all floors with ramp access and bellboy luggage support for senior citizens and families.</p>
+                                <h3 class="fw-bold text-main mb-3 position-relative z-index-1"
+                                    style="font-family: var(--font-heading);">Elevator & Easy Access</h3>
+                                <p class="text-muted position-relative z-index-1">Modern passenger lift serving all
+                                    floors with ramp access and bellboy luggage support for senior citizens and
+                                    families.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <style>
                 .premium-feature-card:hover {
                     transform: translateY(-10px);
                     box-shadow: 0 20px 40px var(--shadow-glow) !important;
                     border-color: var(--sunflower-yellow) !important;
                 }
+
                 .premium-feature-card:hover .feature-bg-icon {
                     transform: scale(1.3) rotate(15deg);
                     opacity: 0.15 !important;
@@ -371,52 +435,83 @@
     <section class="section-padding position-relative overflow-hidden" style="background: var(--primary-bg);">
         <div class="container position-relative z-index-1">
             <div class="text-center mb-5">
-                <span class="fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Inside Every HavenStay Room</span>
+                <span class="fw-bold text-uppercase tracking-wider" style="color: var(--sunflower-yellow);">Inside Every
+                    HavenStay Room</span>
                 <h2 class="display-4 fw-bolder text-main mt-2">Anatomy of a Restful Budget Room</h2>
-                <p class="lead text-muted mx-auto mt-3" style="max-width: 700px;">Every room is thoughtfully equipped with quality bedding, climate control, and spotless bath fixtures.</p>
+                <p class="lead text-muted mx-auto mt-3" style="max-width: 700px;">Every room is thoughtfully equipped
+                    with quality bedding, climate control, and spotless bath fixtures.</p>
             </div>
-            
+
             <div class="row align-items-center mt-5 pt-4">
-                <div class="col-lg-4 text-center text-lg-end">
-                    <div class="mb-5 anatomy-spec-card pe-lg-4" style="transition: transform 0.3s ease;">
-                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">1. Orthopedic Spring Mattresses</h4>
-                        <p class="text-muted small">8-inch medium-firm orthopedic mattresses dressed in crisp, freshly laundered 100% cotton sheets.</p>
+                <div class="col-lg-4 text-start">
+                    <div class="mb-5 anatomy-spec-card pe-lg-3" style="transition: transform 0.3s ease;">
+                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">1.
+                            Orthopedic Spring Mattresses</h4>
+                        <p class="text-muted small mb-0">8-inch medium-firm orthopedic mattresses dressed in crisp,
+                            freshly laundered 100% cotton sheets.</p>
                     </div>
-                    <div class="anatomy-spec-card pe-lg-4" style="transition: transform 0.3s ease; transition-delay: 0.1s;">
-                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sky-orange);">2. Whisper-Quiet Split AC</h4>
-                        <p class="text-muted small">Individual temperature control with clean air filters and high-speed ceiling fans for year-round comfort.</p>
+                    <div class="anatomy-spec-card pe-lg-3"
+                        style="transition: transform 0.3s ease; transition-delay: 0.1s;">
+                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sky-orange);">2.
+                            Whisper-Quiet Split AC</h4>
+                        <p class="text-muted small mb-0">Individual temperature control with clean air filters and
+                            high-speed ceiling fans for year-round comfort.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 text-center my-5 my-lg-0 position-relative">
                     <div class="anatomy-center-img position-relative d-inline-block">
-                        <img src="assets/images/24.png" class="img-fluid rounded-circle shadow-lg border border-5" style="border-color: var(--card-bg) !important; width: 350px; height: 350px; object-fit: cover;" alt="HavenStay Room Comfort Anatomy">
-                        <div class="position-absolute top-50 start-50 translate-middle rounded-circle border border-warning" style="width: 380px; height: 380px; opacity: 0.5; animation: pulse-ring 3s infinite;"></div>
+                        <img src="https://hotelfurnitureconcept.com/wp-content/uploads/2021/04/Budget-Friendly-Hotel-Guest-Room-Design.jpg" class="img-fluid rounded-circle shadow-lg border border-5"
+                            style="border-color: var(--card-bg) !important; width: 350px; height: 350px; object-fit: cover;"
+                            alt="HavenStay Room Comfort Anatomy">
+                        <div class="position-absolute top-50 start-50 translate-middle rounded-circle border border-warning"
+                            style="width: 380px; height: 380px; opacity: 0.5; animation: pulse-ring 3s infinite;"></div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 text-center text-lg-start">
-                    <div class="mb-5 anatomy-spec-card ps-lg-4" style="transition: transform 0.3s ease; transition-delay: 0.2s;">
-                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">3. Sanitized Attached Bathroom</h4>
-                        <p class="text-muted small">Private western-style washrooms with 24/7 hot water geysers, fresh bath towels, and complimentary soap/shampoo.</p>
+                    <div class="mb-5 anatomy-spec-card ps-lg-4"
+                        style="transition: transform 0.3s ease; transition-delay: 0.2s;">
+                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sunflower-yellow);">3.
+                            Sanitized Attached Bathroom</h4>
+                        <p class="text-muted small">Private western-style washrooms with 24/7 hot water geysers, fresh
+                            bath towels, and complimentary soap/shampoo.</p>
                     </div>
-                    <div class="anatomy-spec-card ps-lg-4" style="transition: transform 0.3s ease; transition-delay: 0.3s;">
-                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sky-orange);">4. Smart TV, Kettle & Work Desk</h4>
-                        <p class="text-muted small">32-inch LED TV with satellite channels, electric tea/coffee maker, drinking water, and bedside charging outlets.</p>
+                    <div class="anatomy-spec-card ps-lg-4"
+                        style="transition: transform 0.3s ease; transition-delay: 0.3s;">
+                        <h4 class="fw-bold" style="font-family: var(--font-heading); color: var(--sky-orange);">4. Smart
+                            TV, Kettle & Work Desk</h4>
+                        <p class="text-muted small">32-inch LED TV with satellite channels, electric tea/coffee maker,
+                            drinking water, and bedside charging outlets.</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-5 pt-4">
-                <a href="pricing.html" class="btn btn-project btn-outline-fest rounded-pill px-5 py-3 shadow">Compare Rooms & Tariffs</a>
+                <a href="pricing.html" class="btn btn-project btn-outline-fest rounded-pill px-5 py-3 shadow">Compare
+                    Rooms & Tariffs</a>
             </div>
         </div>
         <style>
-            .anatomy-spec-card:hover { transform: scale(1.05); }
+            .anatomy-spec-card:hover {
+                transform: scale(1.05);
+            }
+
             @keyframes pulse-ring {
-                0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
-                50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.1; }
-                100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+                0% {
+                    transform: translate(-50%, -50%) scale(0.9);
+                    opacity: 0.5;
+                }
+
+                50% {
+                    transform: translate(-50%, -50%) scale(1.05);
+                    opacity: 0.1;
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) scale(0.9);
+                    opacity: 0.5;
+                }
             }
         </style>
     </section>
@@ -426,18 +521,29 @@
         <div class="container position-relative z-1">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3 tracking-wider" >SEAMLESS GUEST EXPERIENCE</span>
-                    <h2 class="display-5 fw-bolder text-main mb-4" style="font-family: var(--font-heading);">Smart Keycard Security & Digital Convenience</h2>
-                    <p class="lead text-muted mb-4">We upgrade the traditional budget lodge experience with contactless RFID room keycards, instant WhatsApp front-desk support, and seamless digital UPI/card billing.</p>
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3 tracking-wider">SEAMLESS
+                        GUEST EXPERIENCE</span>
+                    <h2 class="display-5 fw-bolder text-main mb-4" style="font-family: var(--font-heading);">Smart
+                        Keycard Security & Digital Convenience</h2>
+                    <p class="lead text-muted mb-4">We upgrade the traditional budget lodge experience with contactless
+                        RFID room keycards, instant WhatsApp front-desk support, and seamless digital UPI/card billing.
+                    </p>
                     <ul class="list-unstyled mb-5">
-                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-wifi text-warning fs-4"></i> <span>High-Speed Mesh Wi-Fi on Every Floor</span></li>
-                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-key-fill text-warning fs-4"></i> <span>RFID Smart Keycard Door Locks</span></li>
-                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-headset text-warning fs-4"></i> <span>24/7 Front Desk & Room Service Intercom</span></li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-wifi text-warning fs-4"></i>
+                            <span>High-Speed Mesh Wi-Fi on Every Floor</span></li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i
+                                class="bi bi-key-fill text-warning fs-4"></i> <span>RFID Smart Keycard Door Locks</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-headset text-warning fs-4"></i>
+                            <span>24/7 Front Desk & Room Service Intercom</span></li>
                     </ul>
-                    <a href="contact.html" class="btn btn-project btn-primary-fest px-5 py-3 rounded-pill fw-bold text-white border-0 shadow-lg" style="letter-spacing: 1px;">CONTACT FRONT DESK</a>
+                    <a href="contact.html"
+                        class="btn btn-project btn-primary-fest px-5 py-3 rounded-pill fw-bold text-white border-0 shadow-lg"
+                        style="letter-spacing: 1px;">CONTACT FRONT DESK</a>
                 </div>
                 <div class="col-lg-6 position-relative">
-                    <img src="assets/images/25.png" alt="Smart Hotel Convenience" class="img-fluid rounded-4 shadow-lg border border-5 border-warning position-relative z-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA-ENN_jmUeeDBHxks3zGoi9V_CV3LMQj_F6_TxKEdxjf2y15GMecTsQln&s=10" alt="Smart Hotel Convenience"
+                        class="img-fluid rounded-4 shadow-lg border border-5 border-warning position-relative z-2">
                 </div>
             </div>
         </div>
@@ -457,7 +563,8 @@
                             <span class="brand-tagline">Budget Hotel & Lodge</span>
                         </span>
                     </a>
-                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Offering affordable AC & Non-AC rooms, family suites, free Wi-Fi, gated parking, and 24/7 hospitality.</p>
+                    <p class="text-muted">HavenStay Budget Hotel & Lodge. Offering clean, safe, and affordable AC &
+                        Non-AC rooms, family suites, and 24/7 hospitality in the heart of the city.</p>
                     <div class="social-icons mt-3">
                         <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -475,18 +582,24 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 footer-links">
-                    <h5>Facilities</h5>
+                    <h5>Accommodations</h5>
                     <ul>
-                        <li><a href="services.html#uplighting">24/7 Front Desk</a></li>
-                        <li><a href="services.html#draping">Free Fiber Wi-Fi</a></li>
-                        <li><a href="services.html#chandeliers">In-House Dining</a></li>
+                        <li><a href="pricing.html">Economy Single</a></li>
+                        <li><a href="pricing.html">Deluxe Double AC</a></li>
+                        <li><a href="pricing.html">Family Quad Suite</a></li>
                         <li><a href="gallery.html">Room Gallery</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5>Room Booking Enquiry</h5>
-                    <p class="text-muted">Check availability for your travel dates with our 24/7 desk.</p>
-                    <a href="quote.html" class="btn btn-project btn-primary-fest w-100 py-3">Enquire Room Stay</a>
+                    <h5>Special Tariff Offers</h5>
+                    <p class="text-muted">Subscribe for seasonal room discounts and direct booking deals.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-2 mb-3">
+                        <input type="email" class="form-control rounded-pill px-3 py-2 border-warning"
+                            placeholder="Email address"
+                            style="background: var(--card-bg); color: var(--text-main); border-color: var(--border-color) !important;">
+                        <button class="btn btn-project btn-primary-fest rounded-pill px-4 py-2 text-nowrap"
+                            type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
             <hr class="my-5 border-warning opacity-25">
@@ -501,4 +614,5 @@
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

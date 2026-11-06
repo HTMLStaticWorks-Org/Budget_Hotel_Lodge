@@ -152,4 +152,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.giant-card').forEach(card => {
         revealObserver.observe(card);
     });
+
+    // Auto-populate default dates for Hero Booking Bar
+    const heroCheckin = document.querySelector('.hero-booking-card input[name="checkin"]');
+    const heroCheckout = document.querySelector('.hero-booking-card input[name="checkout"]');
+    if (heroCheckin && !heroCheckin.value) {
+        const today = new Date();
+        const tomorrow = new Date();
+        tomorrow.setDate(today.getDate() + 1);
+        const todayStr = today.toISOString().split('T')[0];
+        const tomorrowStr = tomorrow.toISOString().split('T')[0];
+        heroCheckin.value = todayStr;
+        heroCheckin.min = todayStr;
+        if (heroCheckout && !heroCheckout.value) {
+            heroCheckout.value = tomorrowStr;
+            heroCheckout.min = tomorrowStr;
+        }
+    }
+
+    // Auto-fill booking enquiry from URL parameters (on quote.html)
+    const urlParams = new URLSearchParams(window.location.search);
+    const checkinParam = urlParams.get('checkin');
+    const checkoutParam = urlParams.get('checkout');
+    const roomParam = urlParams.get('room_type');
+
+    if (checkinParam) {
+        const inInput = document.querySelector('input[name="checkin"], #checkInDate');
+        if (inInput) inInput.value = checkinParam;
+    }
+    if (checkoutParam) {
+        const outInput = document.querySelector('input[name="checkout"], #checkOutDate');
+        if (outInput) outInput.value = checkoutParam;
+    }
+    if (roomParam) {
+        const roomSelect = document.querySelector('select[name="room_type"], #roomCategorySelect');
+        if (roomSelect) {
+            for (let option of roomSelect.options) {
+                if (option.value === roomParam || option.text.toLowerCase().includes(roomParam.toLowerCase())) {
+                    option.selected = true;
+                    break;
+                }
+            }
+        }
+    }
 });
