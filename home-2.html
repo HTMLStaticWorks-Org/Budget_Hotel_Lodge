@@ -21,7 +21,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 130px 8% 100px;
+            padding: 130px 0 80px;
             background: linear-gradient(135deg, rgba(7, 17, 24, 0.92) 0%, rgba(7, 17, 24, 0.58) 100%), url('assets/images/g1.jpg');
             background-size: cover;
             background-position: center;
@@ -45,9 +45,9 @@
         }
 
         .hero-2 .hero-content h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            line-height: 1.16;
+            margin-bottom: 1.5rem;
             color: #ffffff !important;
             -webkit-text-fill-color: #ffffff !important;
             font-family: var(--font-heading);
@@ -63,16 +63,16 @@
         }
 
         .hero-2 .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.95) !important;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             max-width: 650px;
             text-shadow: 0 2px 15px rgba(0,0,0,0.9);
             line-height: 1.6;
         }
 
         @media (max-width: 991px) {
-            .hero-2 { padding: 130px 4% 60px; text-align: center; }
+            .hero-2 { padding: 125px 0 50px; text-align: center; min-height: auto; }
             .hero-2 .hero-content { margin-bottom: 2rem; }
             .hero-graphic { max-width: 310px; margin-top: 1.5rem; }
             .hero-float-badge { padding: 0.35rem 0.75rem; gap: 7px; }
@@ -83,8 +83,8 @@
             .float-badge-2 { bottom: 15px; left: 12px; }
         }
         @media (max-width: 768px) {
-            .hero-2 { padding: 125px 4% 50px; text-align: center; justify-content: center; }
-            .hero-2 .hero-content h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+            .hero-2 { padding: 125px 0 50px; text-align: center; justify-content: center; min-height: auto; }
+            .hero-2 .hero-content h1 { font-size: 2.6rem; margin-bottom: 1.5rem; }
             .hero-2 .hero-content p { font-size: 1.1rem; margin-bottom: 1.8rem; margin-left: auto; margin-right: auto; }
             .hero-2 .d-flex { justify-content: center; }
             .hero-graphic { max-width: 270px; margin-top: 1.5rem; }
@@ -92,8 +92,8 @@
             .float-badge-2 { bottom: 12px; left: 10px; }
         }
         @media (max-width: 576px) {
-            .hero-2 { padding: 120px 4% 40px; }
-            .hero-2 .hero-content h1 { font-size: 2.1rem; }
+            .hero-2 { padding: 110px 0 40px; min-height: auto; }
+            .hero-2 .hero-content h1 { font-size: 2rem; }
             .hero-graphic { max-width: 230px; margin-top: 1.5rem; }
             .hero-float-badge { padding: 0.28rem 0.55rem; gap: 5px; }
             .hero-float-badge strong { font-size: 0.65rem; }
@@ -311,7 +311,7 @@
 
     <!-- Hero Section 2 -->
     <header class="hero-2">
-        <div class="container-fluid px-lg-5">
+        <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="hero-content text-center text-lg-start">
@@ -392,11 +392,11 @@
                 <div class="col-lg-7">
                     <div class="position-relative">
                         <img src="https://don5wql5ofws9.cloudfront.net/media/room_images/_DSC0862.webp" class="img-fluid rounded-5 shadow-lg w-100" alt="HavenStay Deluxe Bedroom" style="max-height: 480px; object-fit: cover;">
-                        <div class="position-absolute bottom-0 start-0 m-4 p-3 rounded-4 border d-none d-sm-flex align-items-center gap-3" style="background: rgba(7, 17, 24, 0.88); backdrop-filter: blur(10px); border-color: rgba(45, 212, 191, 0.4) !important;">
+                        <div class="position-absolute bottom-0 start-0 m-3 m-sm-4 p-2 p-sm-3 rounded-4 border d-flex align-items-center gap-3" style="background: rgba(7, 17, 24, 0.88); backdrop-filter: blur(10px); border-color: rgba(45, 212, 191, 0.4) !important;">
                             <i class="bi bi-patch-check-fill text-warning fs-3"></i>
                             <div>
                                 <h6 class="text-white mb-0 fw-bold">Verified Clean Lodge Standard</h6>
-                                <small class="text-white-50">100% Sanitized Rooms & 24/7 Reception</small>
+                                <small class="text-white" style="opacity: 0.95;">100% Sanitized Rooms & 24/7 Reception</small>
                             </div>
                         </div>
                     </div>
@@ -438,7 +438,7 @@
                             <img src="https://assets.simplotel.com/simplotel/image/upload/x_0,y_0,w_1672,h_941,r_0,c_crop,q_90,fl_progressive/w_900,f_auto,c_fit/mount-embassy-hotel/Super_Deluxe_3_26cf364e.png" class="w-100 h-100 object-fit-cover" alt="Deluxe Double AC Room">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">DELUXE AC</span>
                         </div>
-                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Deluxe Double AC Room</h4>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">Deluxe Double AC Room checkIn</h4>
                         <p class="text-muted small flex-grow-1">Spacious queen-size orthopedic bed with whisper-quiet split AC, 32" Smart LED TV, electric tea/coffee kettle, and complimentary morning beverage.</p>
                         <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
                             <span class="fw-bold text-warning font-monospace">From $45 / Night</span>
@@ -502,7 +502,7 @@
                             <img src="https://assets.architecturaldigest.in/photos/69a67739ba37f58bbbe38358/master/w_1600%2Cc_limit/6%2520Glass%2520House.jpg" class="w-100 h-100 object-fit-cover" alt="In-House Cafe & Room Service">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark px-3 py-1 rounded-pill font-monospace fw-bold">DINING & CAFE</span>
                         </div>
-                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">In-House Dining & Room Service</h4>
+                        <h4 class="fw-bold text-main mb-2" style="font-family: var(--font-heading);">In-House Dining & Room Service done</h4>
                         <p class="text-muted small flex-grow-1">Freshly prepared homestyle breakfast, lunch, and dinner served in our clean ground-floor cafe or delivered straight to your room door.</p>
                         <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto" style="border-color: var(--border-color) !important;">
                             <span class="fw-bold text-warning font-monospace">From $6 / Meal</span>
@@ -643,7 +643,7 @@
                         </div>
                         <p class="text-muted small flex-grow-1">"Our family of four stayed in the Super Deluxe Family Suite for three nights. The beds were super comfortable, the AC cooled the room in minutes, and the tariff was half what nearby hotels charged!"</p>
                         <div class="d-flex align-items-center gap-3 pt-3 border-top mt-auto" style="border-color: var(--border-color) !important;">
-                            <img src="assets/images/a1.png" alt="Sophia & Ethan R." class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning" width="48" height="48">
+                            <img src="assets/images/a1.png" alt="Sophia & Ethan R." class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning testimonial-avatar" width="48" height="48" style="width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; flex-shrink: 0 !important;">
                             <div>
                                 <h6 class="text-main fw-bold mb-0">Sophia & Ethan R.</h6>
                                 <small class="text-muted">3-Night Family Stay</small>
@@ -659,7 +659,7 @@
                         </div>
                         <p class="text-muted small flex-grow-1">"As a solo female traveler, safety and cleanliness are my top priorities. HavenStay has 24/7 reception staff, bright corridors with CCTV, and spotless bathrooms. Highly recommended!"</p>
                         <div class="d-flex align-items-center gap-3 pt-3 border-top mt-auto" style="border-color: var(--border-color) !important;">
-                            <img src="https://i0.wp.com/therecruitermom.com/wp-content/uploads/2025/08/AFAFA251-A2F4-4D67-82AA-ADC0B88B21E6_1_201_a.jpeg?resize=1024%2C1365&ssl=1" alt="Victoria Bennett" class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning" width="48" height="48">
+                            <img src="assets/images/a2.png" alt="Victoria Bennett" class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning testimonial-avatar" width="48" height="48" style="width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; flex-shrink: 0 !important;">
                             <div>
                                 <h6 class="text-main fw-bold mb-0">Victoria Bennett</h6>
                                 <small class="text-muted">Solo Business Traveler</small>
@@ -675,7 +675,7 @@
                         </div>
                         <p class="text-muted small flex-grow-1">"Checked in at 1:30 AM after a delayed train and the night receptionist had our Deluxe Double room ready in two minutes. Hot shower, crisp bedsheets, and great morning coffee."</p>
                         <div class="d-flex align-items-center gap-3 pt-3 border-top mt-auto" style="border-color: var(--border-color) !important;">
-                            <img src="https://img.magnific.com/premium-photo/confident-professional-woman-white-suit-smiling_1203138-197037.jpg?semt=ais_hybrid&w=740&q=80" alt="Marcus Vance" class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning" width="48" height="48">
+                            <img src="assets/images/a3.png" alt="Marcus Vance" class="rounded-circle object-fit-cover shadow-sm border border-2 border-warning testimonial-avatar" width="48" height="48" style="width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; flex-shrink: 0 !important;">
                             <div>
                                 <h6 class="text-main fw-bold mb-0">Marcus Vance</h6>
                                 <small class="text-muted">Overnight Transit Guest</small>
@@ -799,7 +799,7 @@
                         </div>
 
                         <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold fs-6">
-                            Enquire & Book This Tariff <i class="bi bi-arrow-right ms-2"></i>
+                            Enquire & Book <i class="bi bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>

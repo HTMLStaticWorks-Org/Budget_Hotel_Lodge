@@ -410,7 +410,7 @@ section.section-padding:first-of-type {
 .hero-section {
     position: relative;
     padding: 130px 0 80px;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.28) 0%, transparent 50%),
@@ -709,6 +709,13 @@ section.section-padding:first-of-type {
     margin-bottom: 3px;
 }
 
+.booking-field-label i {
+    color: #2dd4bf !important;
+    font-size: 0.86rem;
+    filter: drop-shadow(0 0 3px rgba(45, 212, 191, 0.5));
+    vertical-align: -1px;
+}
+
 .booking-field-input {
     width: 100%;
     background: transparent;
@@ -725,10 +732,30 @@ section.section-padding:first-of-type {
     color: #ffffff;
 }
 
+.hero-booking-card input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"].booking-field-input::-webkit-calendar-picker-indicator,
 .booking-field-input::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    filter: invert(0.8) sepia(1) saturate(3) hue-rotate(130deg);
-    opacity: 0.85;
+    cursor: pointer !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z'/%3E%3Cpath fill='%232dd4bf' d='M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 16px 16px !important;
+    background-color: rgba(45, 212, 191, 0.22) !important;
+    border: 1px solid rgba(45, 212, 191, 0.55) !important;
+    filter: none !important;
+    opacity: 1 !important;
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 6px !important;
+    padding: 4px !important;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-booking-card input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="date"].booking-field-input::-webkit-calendar-picker-indicator:hover,
+.booking-field-input::-webkit-calendar-picker-indicator:hover {
+    transform: scale(1.1);
+    background-color: rgba(45, 212, 191, 0.42) !important;
 }
 
 @media (max-width: 991px) {
@@ -1009,6 +1036,22 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         height: auto;
     }
 
+    /* Keep profile and testimonial avatars perfectly circular on mobile and tablet */
+    .testimonial-avatar,
+    img.testimonial-avatar,
+    .rounded-circle.object-fit-cover,
+    img.rounded-circle {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        max-width: 48px !important;
+        aspect-ratio: 1 / 1 !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        flex-shrink: 0 !important;
+    }
+
     /* Fix wide hero sections */
     .hero-section,
     .hero-sec,
@@ -1016,6 +1059,25 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         max-width: 100vw;
         overflow: clip;
     }
+}
+
+/* Testimonial & Review Avatar Circular Guarantee */
+.testimonial-avatar,
+.rounded-circle.object-fit-cover,
+img.rounded-circle {
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+
+/* High-Contrast Hero Section Subtext for Subpages (about, services, gallery, pricing, contact, quote) */
+header.section-padding p.lead {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+    font-weight: 400;
 }
 
 /* Accordion Custom Styling */
